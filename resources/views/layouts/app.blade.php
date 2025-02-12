@@ -6,7 +6,7 @@
 
     <!-- Styles -->
     @if (app()->environment('production'))
-        <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
+        <link rel="stylesheet" href="{{ Vite::asset('resources/css/app.css') }}">
     @else
         @vite(['resources/css/app.css'])
     @endif
@@ -32,7 +32,7 @@
     </script>
 
     @if (app()->environment('production'))
-        <script defer src="{{ asset('build/assets/app.js') }}"></script>
+        <script defer src="{{ Vite::asset('resources/js/app.js') }}"></script>
     @else
         @vite(['resources/js/app.js'])
     @endif
