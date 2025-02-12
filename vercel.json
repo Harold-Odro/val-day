@@ -1,17 +1,21 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "api/index.php",
-            "use": "vercel-php-runtime"
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.0"
         }
-    ],
+    },
     "routes": [
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
     ],
+    "build": {
+        "env": {
+            "NODE_VERSION": "18"
+        }
+    },
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
