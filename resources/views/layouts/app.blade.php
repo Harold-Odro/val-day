@@ -8,6 +8,7 @@
     @vite(['resources/css/app.css'])
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
+
     <!-- Load Alpine.js First -->
     <script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
@@ -27,4 +28,8 @@
 
     <!-- Load Vite after Alpine is Ready -->
     @vite(['resources/js/app.js'])
+
+
+
+
 </head>
