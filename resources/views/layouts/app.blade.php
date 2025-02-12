@@ -3,31 +3,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Valentine's Day</title>
+
     <!-- Styles -->
-    @if (app()->environment('production'))
-        @vite(['resources/css/app.css'])
-    @else
-        @vite(['resources/css/app.css'])
-    @endif
+    @vite(['resources/css/app.css'])
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <!-- Scripts -->
-    <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
+
+    <!-- Load Alpine.js First -->
+    <script defer src="https://unpkg.com/alpinejs@3.13.0/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <!-- Other Scripts -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+    <!-- Debugging Scripts -->
     <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.plugin(Intersect);
-        });
         document.addEventListener('DOMContentLoaded', function() {
-            if (typeof Alpine === 'undefined') console.error('Alpine.js not loaded');
-            if (typeof Swiper === 'undefined') console.error('Swiper not loaded');
-            if (typeof confetti === 'undefined') console.error('Confetti not loaded');
+            console.log('✅ Alpine:', typeof Alpine !== 'undefined' ? 'Loaded' : 'Not Loaded');
+            console.log('✅ Swiper:', typeof Swiper !== 'undefined' ? 'Loaded' : 'Not Loaded');
+            console.log('✅ Confetti:', typeof confetti !== 'undefined' ? 'Loaded' : 'Not Loaded');
         });
     </script>
-    @if (app()->environment('production'))
-        @vite(['resources/js/app.js'])
-    @else
-        @vite(['resources/js/app.js'])
-    @endif
+
+    <!-- Load Vite after Alpine is Ready -->
+    @vite(['resources/js/app.js'])
 </head>
