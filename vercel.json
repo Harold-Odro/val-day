@@ -2,20 +2,11 @@
     "version": 2,
     "builds": [
         {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": { "distDir": "public/build" }
-        },
-        {
             "src": "api/index.php",
-            "use": "@vercel/php"
+            "use": "vercel-php-runtime"
         }
     ],
     "routes": [
-        {
-            "src": "/build/(.*)",
-            "dest": "/public/build/$1"
-        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
