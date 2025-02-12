@@ -4,7 +4,9 @@
 
     "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "vercel-build": "vite build && php artisan optimize"
+
    
 },
 
